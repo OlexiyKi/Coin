@@ -4,7 +4,7 @@ services:
     build: .
     ports:
       - "8000:5000"
-    command: python3 app.py
+    command: python3 rate_getting.py
     depends_on:
       - rabbitmq_container
     environment:
@@ -22,7 +22,7 @@ services:
 
   celery_worker:
     build: .
-    command: celery -A celery_working worker --loglevel=INFO
+    command: celery -A periodic_task worker --loglevel=INFO
     depends_on:
       - rabbitmq_container
     environment:
@@ -31,7 +31,7 @@ services:
 
   celery_beat:
     build: .
-    command: celery -A celery_working beat --loglevel=info
+    command: celery -A periodic_task beat --loglevel=info
     depends_on:
       - rabbitmq_container
     environment:
