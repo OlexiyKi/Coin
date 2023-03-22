@@ -26,4 +26,5 @@ def setup_periodic_tasks(sender, **kwargs):
 def get_data_tasks():
     '''тут воркері, которіе будут собирать инфо'''
     get_data()
+
     return True
