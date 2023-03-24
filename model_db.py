@@ -60,7 +60,7 @@ class RateHistory(Base):
         self.rate = rate
 
     def __repr__(self):
-        return f"<User {self.name!r}>"
+        return f"<RateHistory {self.rate!r}>"
 
 
 
